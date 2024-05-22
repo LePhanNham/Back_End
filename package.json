@@ -1,0 +1,40 @@
+{
+  "name": "nodejs-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codesandbox-app/static-template.git"
+  },
+  "keywords": [],
+  "author": "Ives van Hoorne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codesandbox-app/static-template/issues"
+  },
+  "homepage": "https://github.com/codesandbox-app/static-template#readme",
+  "devDependencies": {
+    "@aws-sdk/credential-provider-ini": "3.577.0",
+    "@aws-sdk/middleware-user-agent": "3.577.0",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.577.0",
+    "@aws-sdk/types": "3.577.0",
+    "aws": "0.0.3-2",
+    "aws-sdk": "2.1623.0",
+    "bcrypt": "5.1.1",
+    "bson": "6.7.0",
+    "cors": "2.8.5",
+    "dotenv": "16.4.5",
+    "express": "4.19.2",
+    "jsonwebtoken": "9.0.2",
+    "mongoose": "8.3.3",
+    "multer": "1.4.5-lts.1",
+    "multer-s3": "3.0.1"
+  }
+}
