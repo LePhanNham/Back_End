@@ -13,8 +13,7 @@ const hashPassword = async (password) => {
 
 // Register user
 const registerUser = async (req, res) => {
-  const { user_name, password, email, location, description, occupation } =
-    req.body;
+  const { user_name, password, location, description, occupation } = req.body;
 
   try {
     // Check if the user already exists
@@ -42,7 +41,6 @@ const registerUser = async (req, res) => {
     const tokenData = {
       _id: newUser._id,
       user_name: newUser.user_name,
-      email: newUser.email,
       location: newUser.location,
       description: newUser.description,
       occupation: newUser.occupation,
@@ -109,7 +107,6 @@ const loginUser = async (req, res) => {
     const tokenData = {
       _id: user._id,
       user_name: user.user_name,
-      email: user.email,
       location: user.location,
       description: user.description,
       occupation: user.occupation,
