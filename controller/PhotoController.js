@@ -16,38 +16,14 @@ const getPhotosOfUser = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
-
-// Upload a new photo
-const uploadPhoto = async (req, res) => {
-  try {
-    if (!req.file) {
-      return res.status(400).json({ msg: "No file uploaded" });
-    }
-    const newPhoto = new Photo({
-      user_id: req.user_id,
-      file_name: req.file.filename,
-    });
-
-    await newPhoto.save();
-    res.json({
-      ...newPhoto._doc,
-      url: `/uploads/${req.file.filename}`,
-    });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send("Server Error");
-  }
-};
-
 // Add a new comment to a photo
 const addCommentToPhoto = async (req, res) => {
   try {
-    console.log("123");
     const { comment } = req.body;
     const user_id = req.user_id;
     const user_name = req.user_name;
     const photoId = req.params.photoId;
-    console.log(user_id);
+    // console.log(user_id);
     const photo = await Photo.findById(photoId);
     if (!photo) {
       return res.status(404).json({ msg: "Photo not found" });
@@ -65,6 +41,28 @@ const addCommentToPhoto = async (req, res) => {
     await photo.save();
 
     res.status(201).json(photo);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+};
+// Upload a new photo
+const uploadPhoto = async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ msg: "No file uploaded" });
+    }
+    const newPhoto = new Photo({
+      user_id: req.user_id,
+      file_name: req.file.filename,
+    });
+
+    await newPhoto.save();
+    res.json({
+      // deo hieu
+      ...newPhoto._doc,
+      url: `/uploads/${req.file.filename}`,
+    });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

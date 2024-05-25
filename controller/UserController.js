@@ -29,7 +29,6 @@ const registerUser = async (req, res) => {
     const newUser = new User({
       user_name,
       password: hashedPassword,
-      email,
       location,
       description,
       occupation,
